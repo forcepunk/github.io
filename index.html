@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Title</title>
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://webtracking-v01.bpmonline.com/JS/track-cookies.js"></script>
+<script src="https://webtracking-v01.bpmonline.com/JS/create-object.js"></script>
+<body>
+	<h2>Welcome To GeeksforGeeks</h2>
+	<form method="POST" class="mainForm" name="landingForm" onSubmit="createObject(); return false" >
+
+		<p>
+			<label>Username: <input id="first_name" type="text" /></label>
+		<p>
+			<label>Phone: <input id="phone_number" type="text" /></label>
+		<p>
+			
+			<button type="submit" >submit</button>
+		</p>
+
+	</form>
+
+<script>
+/**
+* Замените выражение в кавычках "css-selector" в коде ниже значением селектора элемента на Вашей лендинговой странице.
+* Вы можете использовать #id или любой другой CSS селектор, который будет точно определять поле ввода на Вашей лендинговой странице.
+* Пример: "Email": "#MyEmailField".
+* Если Ваша лендинговая страница не содержит одного или нескольких полей из приведенных ниже – оставьте строку без изменений или удалите полностью.
+*/
+var config = {
+    fields: {
+        "Name": "#first_name", // Имя посетителя, заполнившего форму
+        "Email": "css-selector", // Email посетителя
+        "MobilePhone": "#phone_number", // Телефон посетителя
+        "Company": "css-selector", // Название компании
+        "UseEmail": "css-selector", // Логическое значение «да» - согласие посетителя получать email рассылки
+        "City": "css-selector", // Город
+        "Country": "css-selector", // Страна
+        "Commentary": "css-selector", // Примечание
+        "Budget": "css-selector", // Бюджет
+        "TsiDealerCenter": "css-selector", // Дилерский центр
+        "TsiClientBrand": "css-selector", // Предполагаемая марка АТС клиента
+        "TsiClientModel": "css-selector", // Предполагаемая модель АТС клиента
+        "TsiClientMileage": "css-selector", // Пробег
+        "TsiBrand": "css-selector", // Интересующая марка
+        "TsiModel": "css-selector", // Интересующая модель
+        "TsiIssueYearDate": "css-selector", // Год выпуска (не используется)
+        "TsiBodyNumber": "css-selector", // VIN
+        "TsiCapacity": "css-selector", // Объем
+        "TsiEngineType": "css-selector", // Тип двигателя
+        "TsiBodyType": "css-selector", // Тип кузова
+        "TsiGearboxType": "css-selector", // Тип КПП
+        "TsiClientIIN": "css-selector" // ИИН клиента
+    },
+    landingId: "231bc415-50ef-4ca1-98ea-90c2b934686f",
+    serviceUrl: "https://crm.hyundai-auto.uz/0/ServiceModel/GeneratedObjectWebFormService.svc/SaveWebFormObjectData",
+    redirectUrl: "*"
+};
+/**
+* Функция ниже создает объект из введенных данных.
+* Привяжите вызов этой функции к событию "onSubmit" формы или любому другому элементу события.
+* Пример: <form class="mainForm" name="landingForm" onSubmit="createObject(); return false">
+*/
+function createObject() {
+    landing.createObjectFromLanding(config)
+}
+/**
+* Функция ниже инициализирует лендинг из параметров URL.
+*/
+function initLanding() {
+    landing.initLanding(config)
+}
+jQuery(document).ready(initLanding)
+</script>
+</body>
+</html>
